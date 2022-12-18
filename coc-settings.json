@@ -19,9 +19,9 @@
     "receive std input": {
       "prefix": "std",
       "body": [
-        "let mut $0 = String::new();", 
-        "io::stdin().read_line(&mut $0).expect(\"Failed to read line\");", 
-        "let $0: i32 = $0.trim().parse().expect(\"Please type a number!\");" 
+        "let mut $1 = String::new();", 
+        "io::stdin().read_line(&mut $1).expect(\"Failed to read line\");", 
+        "let $1: $2 = $1.trim().parse().expect(\"Please type a number!\");" 
       ],
       "description": "receive std input",
       "requires": "std::io"
@@ -29,12 +29,27 @@
     "receive std input with splitted format": {
       "prefix": "stds",
       "body": [
-        "let mut $0 = String::new();",
-        "io::stdin().read_line(&mut $0).ok();", 
-        "let $0:Vec<String> = $0.replace('\\n', \"\").split(' ').map(|e| e.parse().ok().unwrap()).collect();"
+        "let mut $1 = String::new();",
+        "io::stdin().read_line(&mut $1).ok();", 
+        "let $1:Vec<$2> = $1.replace('\\n', \"\").split(' ').map(|e| e.parse().ok().unwrap()).collect();"
       ],
       "description": "receive std input with splitted format",
       "requires": "std::io"
+    },
+    "alphabet": {
+      "prefix": "alphabet",
+      "body": [
+        "(b'a'..=b'z').map(|c| c as char).collect::<Vec<_>>();"
+      ],
+      "description": "small char alpahbet vector"
+    },
+    "dxdy": {
+      "prefix": "dxdy",
+      "body": [
+        "let dx = vec![0, 1, 0, -1];",
+        "let dy = vec![-1, 0, 1, 0];"
+      ],
+      "description": "array of direction x, y"
     }
   }
 }

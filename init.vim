@@ -7,18 +7,16 @@ set autoindent
 set hlsearch
 set clipboard=unnamed
 set number
-" change directory automatically
-" set autochdir
 
 inoremap jj <ESC>
-" switch buffer pattern1
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-" switch buffer pattern2
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+
+" move next placeholder
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
 
 " save file opend at buffer
 set hidden
